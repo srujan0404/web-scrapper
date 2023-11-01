@@ -13,6 +13,9 @@ def compare_prices():
         elif 'jiomart' in website_url:
             from jiomarts import jiomart
             jiomart(website_url)
+        elif 'snapdeal' in website_url:
+            from snapdeals import snapdeal
+            snapdeal(website_url)
     if price and price1:
         price1 = price1.replace('₹', '')
         price1 = price1.replace(',', '')
