@@ -19,6 +19,9 @@ def compare_prices():
         elif 'shopclues' in website_url:
             from shopcluess import shopclues
             shopclues(website_url)
+        elif 'myntra' in website_url:
+            from myntras import myntra
+            myntra(website_url)
     if price and price1:
         price1 = price1.replace('₹', '')
         price1 = price1.replace(',', '')
