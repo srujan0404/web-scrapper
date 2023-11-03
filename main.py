@@ -22,6 +22,9 @@ def compare_prices():
         elif 'myntra' in website_url:
             from myntras import myntra
             myntra(website_url)
+        elif 'ikea' in website_url:
+            from ikeas import ikea
+            ikea(website_url)
     if price and price1:
         price1 = price1.replace('₹', '')
         price1 = price1.replace(',', '')
