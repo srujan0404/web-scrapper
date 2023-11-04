@@ -6,29 +6,25 @@ header = {
 }
 
 def myntra(url):
-    try:
-        response = requests.get(url, headers=header)
+    response = requests.get(url, headers=header)
 
-        if response.status_code == 200:
-            soup = BeautifulSoup(response.text, 'lxml')
+    if response.status_code == 200:
+        soup = BeautifulSoup(response.text, 'html.parser')
 
-            # Getting the name of the product
-            title_div = soup.find('h1', class_='pdp-title')
-            product_name = title_div.text.strip()
+        # Getting the name of the product
+        title_element = soup.find('h1', class_='pdp-title')  # Update the class to match the actual HTML structure
+        product_name = title_element.text.strip() if title_element else "Product name not found"
 
-            # Getting the price of the product
-            price_span = soup.find('span', class_='pdp-mrp')
-            price = price_span.text.strip()
+        # Getting the price of the product
+        price_element = soup.find('span', class_='pdp-mrp')  # Update the class to match the actual HTML structure
+        price = price_element.text.strip() if price_element else "Price not found"
 
-            # Getting the name of the website
-            website_source = "Myntra"
+        # Getting the name of the website
+        website_source = "Myntra"
 
-            print(f'The Product: {product_name} is available at {website_source} for Rs.{price}')
+        print(f'The Product: {product_name} is available at {website_source} for Rs.{price}')
 
-            return price
-        else:
-            print(f'Failed to fetch the webpage. The status code was {response.status_code}')
-            return None
-    except requests.exceptions.RequestException as e:
-        print(f'An error occurred: {e}')
+        return price
+    else:
+        print(f'Failed to fetch the webpage. The status code was {response.status_code}')
         return None
