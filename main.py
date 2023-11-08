@@ -11,6 +11,15 @@ def compare_prices():
         elif 'amazon' in website_url:
             from amazons import amazon
             price = amazon(website_url)
+            
+        elif 'shopclues' in website_url:
+            from shopcluess import shopclues
+            price = shopclues(website_url)
+        elif 'snapdeal' in website_url:
+            from snapdeals import snapdeal
+            price = snapdeal(website_url)
+        
+
 
     if price and price1:
         if price1 < price:
