@@ -20,5 +20,4 @@ def flipkart(url):
     price = price_div.text.strip()
 
     print(f'The Product: {product_name} is available at Flipkart for {price}')
-
-    return price
+    return float(price[1:].replace(',',''))
